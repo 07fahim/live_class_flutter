@@ -1,37 +1,32 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.amber,
-        body: Center(
-          child: Text(
-            "Hello World!! we are writting our first flutter code",
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.justify,
-            maxLines: 1,
-            textDirection: TextDirection.ltr,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              color: Colors.indigoAccent,
-              //backgroundColor: Colors.black,
-              wordSpacing: 2.5,
-              letterSpacing: 1.1,
-
-              decoration: TextDecoration.lineThrough,
-              height: 3,
-            ),
-            //textAlign: TextAlign.justify,
-          ),
+        appBar: AppBar(
+          title: const Text("Home"),
+          centerTitle: true,
         ),
+        // body: Image.asset(
+        //   'assets/images/cr7.jpg',
+        //   width: 350,
+        //   height: 400,
+        //   fit: BoxFit.scaleDown,
+        //   alignment: Alignment.bottomCenter,
+        // )
+        body: Image.network(
+            'https://wallpapers.com/images/hd/cristiano-ronaldo-chest-signal-5j34l030l0ys94wg.jpg',
+            width: 350, height: 400,
+        fit: BoxFit.scaleDown,alignment: Alignment.bottomCenter),
       ),
     );
   }
