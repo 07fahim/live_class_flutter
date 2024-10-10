@@ -41,7 +41,26 @@ class Home extends StatelessWidget {
             ),
             ElevatedButton(
                 onPressed: () {
-                  print('Taped on elevated button');
+                  showDialog(barrierColor: Colors.white,
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Text(
+                            "Delete",
+                          ),
+                          backgroundColor: Colors.pink,
+                          titleTextStyle:
+                              TextStyle(color: Colors.white, fontSize: 18),
+                          content: Text(
+                            "Are you sure?",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          actions: [
+                            InkWell(child: TextButton(onPressed: () {}, child: Text("No",style:TextStyle(color: Colors.white),))),
+                            InkWell(child: TextButton(onPressed: () {}, child: Text("Yes",style:TextStyle(color: Colors.white)))),
+                          ],
+                        );
+                      });
                 },
                 child: Text("Tap"),
                 style: ElevatedButton.styleFrom(
