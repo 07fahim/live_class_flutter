@@ -72,11 +72,11 @@ class Home extends StatelessWidget {
                            mainAxisAlignment: MainAxisAlignment.end,
                             //crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                ElevatedButton(onPressed: (){}, child:Text("Cancel"),),
+                                InkWell(child: ElevatedButton(onPressed: (){}, child:Text("Cancel"),)),
                                 //SizedBox(width: 6,),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: ElevatedButton(onPressed: (){}, child:Text("Save")),
+                                  child: InkWell(child: ElevatedButton(onPressed: (){}, child:Text("Save"))),
                                 )
                               ]
                           )
