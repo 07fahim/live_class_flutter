@@ -40,171 +40,60 @@ class Home extends StatelessWidget {
               height: 200,
             ),
             ElevatedButton(
-                onPressed: () {
-                  showDialog(barrierColor: Colors.white,
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          title: Text(
-                            "Delete",
-                          ),
-                          backgroundColor: Colors.pink,
-                          titleTextStyle:
-                              TextStyle(color: Colors.white, fontSize: 18),
-                          content: Text(
-                            "Are you sure?",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          actions: [
-                            InkWell(child: TextButton(onPressed: () {}, child: Text("No",style:TextStyle(color: Colors.white),))),
-                            InkWell(child: TextButton(onPressed: () {}, child: Text("Yes",style:TextStyle(color: Colors.white)))),
-                          ],
-                        );
-                      });
-                },
-                child: Text("Tap"),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.pink,
-                  foregroundColor: Colors.white,
-                  alignment: Alignment.center,
-                  elevation: 10,
-                  shadowColor: Colors.purple,
-                  textStyle: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                  shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                          color: Colors.white,
-                          width: 4,
-                          strokeAlign: BorderSide.strokeAlignOutside),
-                      borderRadius: BorderRadius.circular(10)),
-                  minimumSize: Size(150, 50),
-                )),
-            SizedBox(height: 10),
-            TextButton(
               onPressed: () {
-                print("Click on");
+                //showAboutDialog(context:context);
+                showModalBottomSheet(
+                    //barrierColor: Colors.redAccent,
+                    backgroundColor: Colors.deepOrangeAccent,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),enableDrag:true ,isScrollControlled:false,useSafeArea:true,
+                    context: context,
+                    builder: (ctx) {
+                      return Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 18),
+                                child: Text(
+                                  "Tittle",
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          ),Divider(color: Colors.greenAccent,thickness: 4,
+                          height: 10,),
+                          Text('Sample'),SizedBox(height:300,),
+                          Row(mainAxisSize: MainAxisSize.max,
+                           mainAxisAlignment: MainAxisAlignment.end,
+                            //crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                ElevatedButton(onPressed: (){}, child:Text("Cancel"),),
+                                //SizedBox(width: 6,),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: ElevatedButton(onPressed: (){}, child:Text("Save")),
+                                )
+                              ]
+                          )
+                        ],
+                      );
+                    });
               },
-              child: Text("Click"),
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.pink,
+              child: Text("Show Dialog"),
+              style: ElevatedButton.styleFrom(
+                  elevation: 5,
+                  backgroundColor: Colors.lightGreen,
                   foregroundColor: Colors.white,
-                  alignment: Alignment.center,
-                  elevation: 10,
-                  shadowColor: Colors.purple,
-                  textStyle: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                  textStyle: TextStyle(fontSize: 18),
                   shape: RoundedRectangleBorder(
-                      side: BorderSide(
-                          color: Colors.white,
-                          width: 4,
-                          strokeAlign: BorderSide.strokeAlignOutside),
-                      borderRadius: BorderRadius.circular(10)),
-                  minimumSize: Size(150, 50)),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.insert_emoticon_sharp),
-                style: IconButton.styleFrom(
-                    backgroundColor: Colors.pink,
-                    foregroundColor: Colors.white,
-                    alignment: Alignment.center,
-                    elevation: 10,
-                    shadowColor: Colors.purple,
-                    padding: EdgeInsets.all(30),
-                    iconSize: 30,
-                    shape: CircleBorder(
-                        side: BorderSide(
-                            color: Colors.white,
-                            width: 4,
-                            strokeAlign: BorderSide.strokeAlignOutside)),
-                    fixedSize: Size(100, 100))),
-            SizedBox(height: 10),
-            FloatingActionButton.large(
-              backgroundColor: Colors.pink,
-              foregroundColor: Colors.white,
-              onPressed: () {},
-              child: Icon(Icons.add),
-              tooltip: 'This is a add button',
-              elevation: 10,
-              shape: CircleBorder(
-                  side: BorderSide(
-                      color: Colors.white,
-                      width: 4,
-                      strokeAlign: BorderSide.strokeAlignOutside)),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            OutlinedButton(
-              onPressed: () {},
-              child: Text("Click Here"),
-              style: OutlinedButton.styleFrom(
-                backgroundColor: Colors.pink,
-                foregroundColor: Colors.white,
-                alignment: Alignment.center,
-                elevation: 10,
-                shadowColor: Colors.purple,
-                textStyle: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                        color: Colors.white,
-                        width: 4,
-                        strokeAlign: BorderSide.strokeAlignOutside),
-                    borderRadius: BorderRadius.circular(10)),
-                minimumSize: Size(150, 50),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            GestureDetector(
-              onTap: () {
-                print('On Tap');
-              },
-              onTapCancel: () {
-                print('OnTap Cancel');
-              },
-              onDoubleTap: () {
-                print('Double press');
-              },
-              onLongPress: () {
-                print('Long press');
-              },
-              onLongPressCancel: () {
-                print('Long press Cancel');
-              },
-              onLongPressEnd: (deatails) {
-                print("Long press end");
-              },
-              child: Column(
-                children: [
-                  Text('Simple Text'),
-                  Text('Simple Text'),
-                  Text('Simple Text'),
-                ],
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                print("Tap");
-              },
-              child: Text("Behave like a button"),
-              borderRadius: BorderRadius.circular(10),
-              splashColor: Colors.purple,
-            ),
+                      borderRadius: BorderRadius.circular(5)),
+                  side: BorderSide(color: Colors.white70, width: 2)),
+            )
           ],
         ),
       ),
