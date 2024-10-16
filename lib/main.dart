@@ -33,69 +33,67 @@ class Home extends StatelessWidget {
         toolbarOpacity: 1,
       ),
       backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 200,
+      body: Column(
+        children: [
+          SizedBox(
+            height: 150,
+          ),
+          Center(
+            child: Text(
+              "Sign in with email",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26,
+                  color: Colors.blueGrey,
+                  fontFamily: 'Rubik'),
             ),
-            ElevatedButton(
-              onPressed: () {
-                //showAboutDialog(context:context);
-                showModalBottomSheet(
-                    //barrierColor: Colors.redAccent,
-                    backgroundColor: Colors.deepOrangeAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),enableDrag:true ,isScrollControlled:false,useSafeArea:true,
-                    context: context,
-                    builder: (ctx) {
-                      return Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 18),
-                                child: Text(
-                                  "Tittle",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ],
-                          ),Divider(color: Colors.greenAccent,thickness: 4,
-                          height: 10,),
-                          Text('Sample'),SizedBox(height:300,),
-                          Row(mainAxisSize: MainAxisSize.max,
-                           mainAxisAlignment: MainAxisAlignment.end,
-                            //crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                InkWell(child: ElevatedButton(onPressed: (){}, child:Text("Cancel"),)),
-                                //SizedBox(width: 6,),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: InkWell(child: ElevatedButton(onPressed: (){}, child:Text("Save"))),
-                                )
-                              ]
-                          )
-                        ],
-                      );
-                    });
-              },
-              child: Text("Show Dialog"),
-              style: ElevatedButton.styleFrom(
-                  elevation: 5,
-                  backgroundColor: Colors.lightGreen,
-                  foregroundColor: Colors.white,
-                  textStyle: TextStyle(fontSize: 18),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  side: BorderSide(color: Colors.white70, width: 2)),
-            )
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: Text(
+              'We are ready to design more-value to your business, startup,app, website, and product.',
+              style: TextStyle(fontSize: 18, color: Colors.black54),
+              textDirection: TextDirection.ltr,
+              overflow: TextOverflow.visible,
+              textAlign: TextAlign.center,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 30,
+                ),
+                TextField(keyboardType:TextInputType.emailAddress,
+                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  decoration: InputDecoration(
+                    hintText: "Email",
+                    labelText: "Email",
+                    labelStyle: TextStyle(color: Colors.grey.shade700,fontWeight:FontWeight.w600),
+                    hintStyle: TextStyle(
+                        color: Colors.grey.shade400,
+                        fontWeight: FontWeight.w500),
+                    prefixIcon:Icon(Icons.email_rounded,color: Colors.black38,),
+                    filled: true,
+                    fillColor: Colors.white70,
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                        borderSide: BorderSide(
+                            color: Colors.black38,
+                            strokeAlign: BorderSide.strokeAlignOutside,
+                            )),
+                    focusedBorder:OutlineInputBorder(borderSide: BorderSide(
+                      color: Colors.grey.shade300,
+                      strokeAlign: BorderSide.strokeAlignOutside,
+                    ),borderRadius: BorderRadius.all(Radius.circular(20)))
+                  ),
+                  
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
