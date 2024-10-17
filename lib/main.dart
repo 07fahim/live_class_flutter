@@ -36,7 +36,7 @@ class Home extends StatelessWidget {
       body: Column(
         children: [
         SizedBox(
-        height: 150,
+        height: 15,
       ),
       Center(
         child: Text(
@@ -82,11 +82,11 @@ class Home extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     borderSide: BorderSide(
                       color: Colors.black38,
-                      strokeAlign: BorderSide.strokeAlignOutside,
+                      //strokeAlign: BorderSide.strokeAlignOutside,
                     )),
                 focusedBorder: OutlineInputBorder(borderSide: BorderSide(
                   color: Colors.grey.shade300,
-                  strokeAlign: BorderSide.strokeAlignOutside,
+                  //strokeAlign: BorderSide.strokeAlignOutside,
                 ), borderRadius: BorderRadius.all(Radius.circular(20))),
               ),
 
@@ -98,6 +98,7 @@ class Home extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(16),
           child: TextField(style: TextStyle(fontSize: 18, color: Colors.black),
+            keyboardType:TextInputType.text,
 
             decoration: InputDecoration(
               hintText: "Password",
@@ -120,11 +121,11 @@ class Home extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                   borderSide: BorderSide(
                     color: Colors.black38,
-                    strokeAlign: BorderSide.strokeAlignOutside,
+                    //strokeAlign: BorderSide.strokeAlignOutside,
                   )),
               focusedBorder: OutlineInputBorder(borderSide: BorderSide(
                 color: Colors.grey.shade300,
-                strokeAlign: BorderSide.strokeAlignOutside,
+                //strokeAlign: BorderSide.strokeAlignOutside,
               ), borderRadius: BorderRadius.all(Radius.circular(20))),
             ),
             obscureText: true,
