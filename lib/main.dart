@@ -56,7 +56,7 @@ class Home extends StatelessWidget {
       ),
       bottomNavigationBar:NavigationBar(
           selectedIndex:0,
-
+          onDestinationSelected:(int selectedIndex){},
           destinations:[
         NavigationDestination(icon: Icon(Icons.home), label:"Home"),
         NavigationDestination(icon: Icon(Icons.search), label:"Search")
