@@ -54,6 +54,14 @@ class Home extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar:NavigationBar(
+          selectedIndex:0,
+
+          destinations:[
+        NavigationDestination(icon: Icon(Icons.home), label:"Home"),
+        NavigationDestination(icon: Icon(Icons.search), label:"Search")
+      ]),
+
     );
   }
 }
