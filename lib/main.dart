@@ -16,6 +16,18 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   Home({super.key});
 
+
+  MySnacbar(message,context){
+
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(backgroundColor: Colors.blue.shade200,
+          //padding: EdgeInsets.all(10),
+
+
+          content:Text(message,style:TextStyle(fontSize: 20),)),
+    );
+  }
+
   List<String> friends = [
     "Fahim",
     "Mainu",
@@ -67,8 +79,8 @@ class Home extends StatelessWidget {
         toolbarHeight: 80,
         toolbarOpacity: 1,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.edit)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.delete))
+          IconButton(onPressed: () {MySnacbar('Edit', context);}, icon: Icon(Icons.edit)),
+          IconButton(onPressed: () {MySnacbar('Delete', context);}, icon: Icon(Icons.delete))
         ],
       ),
       backgroundColor: Colors.blue.shade100,
