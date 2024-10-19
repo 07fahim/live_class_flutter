@@ -56,8 +56,8 @@ class Home extends StatelessWidget {
                             style: TextStyle(color: Colors.white),
                           ),
                           actions: [
-                            InkWell(child: TextButton(onPressed: () {}, child: Text("No",style:TextStyle(color: Colors.white),))),
-                            InkWell(child: TextButton(onPressed: () {}, child: Text("Yes",style:TextStyle(color: Colors.white)))),
+                            InkWell(child: TextButton(onPressed: () {Navigator.pop(context);}, child: Text("No",style:TextStyle(color: Colors.white),))),
+                            InkWell(child: TextButton(onPressed: () {Navigator.pop(context);}, child: Text("Yes",style:TextStyle(color: Colors.white)))),
                           ],
                         );
                       });
