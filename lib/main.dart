@@ -9,79 +9,258 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Home"),
-          centerTitle: true,
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Home());
+  }
+}
+
+class Home extends StatelessWidget {
+  Home({super.key});
+
+
+  MySnacbar(message,context){
+
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(backgroundColor: Colors.blue.shade200,
+          //padding: EdgeInsets.all(10),
+
+
+          content:Text(message,style:TextStyle(fontSize: 20),)),
+    );
+  }
+
+  List<String> friends = [
+    "Fahim",
+    "Mainu",
+    "Asif",
+    "Rabby",
+    "Ammar",
+    "Waser",
+    "Forhad",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Home App",
+          style: TextStyle(
+              fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        // body: Image.asset(
-        //   'assets/images/cr7.jpg',
-        //   width: 350,
-        //   height: 400,
-        //   fit: BoxFit.scaleDown,
-        //   alignment: Alignment.bottomCenter,
-        // )
-        //   body: Image.network(
-        //       'https://wallpapers.com/images/hd/cristiano-ronaldo-chest-signal-5j34l030l0ys94wg.jpg',
-        //       width: 350, height: 400,
-        //   fit: BoxFit.scaleDown,alignment: Alignment.bottomCenter),
-        // )
-        //   body: Column(
-        //     mainAxisAlignment: MainAxisAlignment.center,
-        //     crossAxisAlignment: CrossAxisAlignment.center,
-        //     mainAxisSize: MainAxisSize.min,
-        //     children: [
-        //       Text("Hello"),
-        //       Text("Fahim Faiyaz"),
-        //       Image.network(
-        //           'https://wallpapers.com/images/hd/cristiano-ronaldo-chest-signal-5j34l030l0ys94wg.jpg',
-        //           width: 350,
-        //           height: 400,
-        //           fit: BoxFit.cover),
-        //       Text("CR7")
-        //     ],
-        //   ),
-        // body: Row(
-        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //   crossAxisAlignment: CrossAxisAlignment.center,
-        //   mainAxisSize: MainAxisSize.min,
-        //   children: [
-        //     Text('Hello'),
-        //     Text("Fahim Faiyaz"),
-        // Image.network(
-        //             'https://wallpapers.com/images/hd/cristiano-ronaldo-chest-signal-5j34l030l0ys94wg.jpg',
-        //             width: 200,
-        //             fit: BoxFit.cover),
-        //         Text("CR7")
-        //   ],
-        // ),
-          body: Column(
+        titleSpacing: 2,
+        centerTitle: true,
+        backgroundColor: Colors.blue.shade100,
+        elevation: 10,
+        toolbarHeight: 80,
+        toolbarOpacity: 1,
+        actions: [
+          IconButton(onPressed: () {MySnacbar('Edit', context);}, icon: Icon(Icons.edit)),
+          IconButton(onPressed: () {MySnacbar('Delete', context);}, icon: Icon(Icons.delete))
+        ],
+      ),
+      backgroundColor: Colors.blue.shade100,
+      drawer: Drawer(
+        backgroundColor: Colors.blue.shade100,
+        shadowColor: Colors.blue.shade100,
+        shape: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(
+              color: Colors.blue.shade100,
+            )),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 120),
+          child: Column(
             children: [
-              Text("Hello"),
-              Text("Fahim Faiyaz"),
-              Row(
-                children: [
-                  Image.network(
-                      'https://wallpapers.com/images/hd/cristiano-ronaldo-chest-signal-5j34l030l0ys94wg.jpg',
-                      width: 200,
-                      fit: BoxFit.cover),
-                  Text("CR7")
-                ],
-              ),
-              Row(
-                children: [
-                  Image.network(
-                                'https://wallpapers.com/images/hd/cristiano-ronaldo-chest-signal-5j34l030l0ys94wg.jpg',
-                                width: 200,
-                                fit: BoxFit.cover),
-                            Text("CR7")
-                ],
-              )
+              Text("List"),
             ],
           ),
-        )
+        ),
+      ),
+      bottomNavigationBar: NavigationBar(
+          selectedIndex: 0,
+          onDestinationSelected: (int selectedIndex) {},
+          destinations: [
+            NavigationDestination(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.blue.shade400,
+                ),
+                label: "Home"),
+            NavigationDestination(
+                icon: Icon(
+                  Icons.search,
+                  color: Colors.lightBlueAccent,
+                ),
+                label: "Search")
+          ]),
+      // body: Scrollbar(
+      //   child: SingleChildScrollView(
+      //     child: Column(
+      //       children: [
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //       ],
+      //     ),
+      //   ),
+      // ),
+      body: Scrollbar(
+        thickness: 5,
+        interactive: true,
+        trackVisibility: true,
+        thumbVisibility: true,
+        radius: Radius.circular(10),
+        // child: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: ListView.builder(
+        //
+        //     itemCount: 100,
+        //
+        //       itemBuilder:(context,index){
+        //
+        //     return Text("item $index");
+        //   }),
+        // ),
+        child: ListView.builder(
+            itemCount: friends.length,
+            itemBuilder: (BuildContext context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(friends[index]),
+              );
+            }),
+      ),
     );
   }
 }
