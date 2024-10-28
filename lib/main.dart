@@ -16,15 +16,16 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   Home({super.key});
 
-
-  MySnacbar(message,context){
-
+  MySnacbar(message, context) {
     return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(backgroundColor: Colors.blue.shade200,
+      SnackBar(
+          backgroundColor: Colors.blue.shade200,
           //padding: EdgeInsets.all(10),
 
-
-          content:Text(message,style:TextStyle(fontSize: 20),)),
+          content: Text(
+            message,
+            style: TextStyle(fontSize: 20),
+          )),
     );
   }
 
@@ -36,22 +37,6 @@ class Home extends StatelessWidget {
     "Ammar",
     "Waser",
     "Forhad",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
     "CR7",
     "CR7",
     "CR7",
@@ -79,8 +64,16 @@ class Home extends StatelessWidget {
         toolbarHeight: 80,
         toolbarOpacity: 1,
         actions: [
-          IconButton(onPressed: () {MySnacbar('Edit', context);}, icon: Icon(Icons.edit)),
-          IconButton(onPressed: () {MySnacbar('Delete', context);}, icon: Icon(Icons.delete))
+          IconButton(
+              onPressed: () {
+                MySnacbar('Edit', context);
+              },
+              icon: Icon(Icons.edit)),
+          IconButton(
+              onPressed: () {
+                MySnacbar('Delete', context);
+              },
+              icon: Icon(Icons.delete))
         ],
       ),
       backgroundColor: Colors.blue.shade100,
@@ -235,43 +228,54 @@ class Home extends StatelessWidget {
       //     ),
       //   ),
       // ),
-      body: Scrollbar(
-        thickness: 5,
-        interactive: true,
-        trackVisibility: true,
-        thumbVisibility: true,
-        radius: Radius.circular(10),
-        // child: Padding(
-        //   padding: const EdgeInsets.all(8.0),
-        //   child: ListView.builder(
-        //
-        //     itemCount: 100,
-        //
-        //       itemBuilder:(context,index){
-        //
-        //     return Text("item $index");
-        //   }),
-        // ),
-        child: ListView.builder(
-            itemCount: friends.length,
-            itemBuilder: (BuildContext context, index) {
-              return ListTile(
-                title:Text(friends[index]),
-                subtitle: Text("Friend's no $index"),
-                trailing: Icon(Icons.arrow_back_ios),
-                leading: CircleAvatar(
-                  child: Icon(Icons.person),backgroundColor:Colors.pink,
-                  foregroundColor:Colors.redAccent,
-                ),
-                //dense:true,
-                titleTextStyle:TextStyle(color: Colors.pink),
-                subtitleTextStyle: TextStyle(color: Colors.blue),
-                iconColor: Colors.redAccent,
-
-
-              );
-
-            }),
+      // body: Scrollbar(
+      //   thickness: 5,
+      //   interactive: true,
+      //   trackVisibility: true,
+      //   thumbVisibility: true,
+      //   radius: Radius.circular(10),
+      //   // child: Padding(
+      //   //   padding: const EdgeInsets.all(8.0),
+      //   //   child: ListView.builder(
+      //   //
+      //   //     itemCount: 100,
+      //   //
+      //   //       itemBuilder:(context,index){
+      //   //
+      //   //     return Text("item $index");
+      //   //   }),
+      //   // ),
+      //   child: ListView.builder(
+      //       itemCount: friends.length,
+      //       itemBuilder: (BuildContext context, index) {
+      //         return ListTile(
+      //           title:Text(friends[index]),
+      //           subtitle: Text("Friend's no $index"),
+      //           trailing: Icon(Icons.arrow_back_ios),
+      //           leading: CircleAvatar(
+      //             child: Icon(Icons.person),backgroundColor:Colors.pink,
+      //             foregroundColor:Colors.redAccent,
+      //           ),
+      //           //dense:true,
+      //           titleTextStyle:TextStyle(color: Colors.pink),
+      //           subtitleTextStyle: TextStyle(color: Colors.blue),
+      //           iconColor: Colors.redAccent,
+      //
+      //
+      //         );
+      //
+      //       }),
+      // ),
+      body: GridView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: friends.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            mainAxisSpacing: 12, crossAxisSpacing: 12, crossAxisCount: 4),
+        itemBuilder: (context, index) {
+          return Container(height: 100,width: 100,
+            child: Text(friends[index]),
+          );
+        },
       ),
     );
   }
