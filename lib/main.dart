@@ -14,7 +14,54 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
+
+
+  MySnacbar(message,context){
+
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(backgroundColor: Colors.blue.shade200,
+          //padding: EdgeInsets.all(10),
+
+
+          content:Text(message,style:TextStyle(fontSize: 20),)),
+    );
+  }
+
+  List<String> friends = [
+    "Fahim",
+    "Mainu",
+    "Asif",
+    "Rabby",
+    "Ammar",
+    "Waser",
+    "Forhad",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -30,123 +77,201 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.blue.shade100,
         elevation: 10,
         toolbarHeight: 80,
-        toolbarOpacity:1,
+        toolbarOpacity: 1,
+        actions: [
+          IconButton(onPressed: () {MySnacbar('Edit', context);}, icon: Icon(Icons.edit)),
+          IconButton(onPressed: () {MySnacbar('Delete', context);}, icon: Icon(Icons.delete))
+        ],
       ),
       backgroundColor: Colors.blue.shade100,
-      body: Column(
-        children: [
-        SizedBox(
-        height: 15,
-      ),
-      Center(
-        child: Text(
-          "Sign in with email",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 26,
-              color: Colors.blueGrey,
-              fontFamily: 'Rubik'),
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.all(20),
-        child: Text(
-          'We are ready to design more-value to your business, startup,app, website, and product.',
-          style: TextStyle(fontSize: 18, color: Colors.black54),
-          textDirection: TextDirection.ltr,
-          overflow: TextOverflow.visible,
-          textAlign: TextAlign.center,
-        ),
-      ),
-      Padding(
-        padding: EdgeInsets.all(16),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            TextField(keyboardType: TextInputType.emailAddress,
-              style: TextStyle(fontSize: 18, color: Colors.black),
-              decoration: InputDecoration(
-                hintText: "Email",
-                labelText: "Email",
-                labelStyle: TextStyle(
-                    color: Colors.grey.shade700, fontWeight: FontWeight.w700),
-                hintStyle: TextStyle(
-                    color: Colors.grey.shade400,
-                    fontWeight: FontWeight.w500),
-                prefixIcon: Icon(Icons.email_rounded, color: Colors.black38,),
-                filled: true,
-                fillColor: Colors.white70,
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    borderSide: BorderSide(
-                      color: Colors.black38,
-                      //strokeAlign: BorderSide.strokeAlignOutside,
-                    )),
-                focusedBorder: OutlineInputBorder(borderSide: BorderSide(
-                  color: Colors.grey.shade300,
-                  //strokeAlign: BorderSide.strokeAlignOutside,
-                ), borderRadius: BorderRadius.all(Radius.circular(20))),
-              ),
-
-            ),
-          ],
-        ),
-      ),
-      Column(children: [
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: TextField(style: TextStyle(fontSize: 18, color: Colors.black),
-            keyboardType:TextInputType.text,
-
-            decoration: InputDecoration(
-              hintText: "Password",
-              hintStyle: TextStyle(
-                  color: Colors.grey.shade400,
-                  fontWeight: FontWeight.w500),
-              labelText: "Password",
-              labelStyle: TextStyle(
-                  color: Colors.grey.shade700, fontWeight: FontWeight.w700),
-              counterText: "Forgot Password ?",
-              counterStyle: TextStyle(fontSize: 16,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold),
-              prefixIcon: Icon(Icons.lock_rounded, color: Colors.black38),
-              suffixIcon: Icon(
-                  Icons.visibility_off_rounded, color: Colors.black87),
-              filled: true,
-              fillColor: Colors.white70,
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  borderSide: BorderSide(
-                    color: Colors.black38,
-                    //strokeAlign: BorderSide.strokeAlignOutside,
-                  )),
-              focusedBorder: OutlineInputBorder(borderSide: BorderSide(
-                color: Colors.grey.shade300,
-                //strokeAlign: BorderSide.strokeAlignOutside,
-              ), borderRadius: BorderRadius.all(Radius.circular(20))),
-            ),
-            obscureText: true,
-          ),
-        ),
-      ],
-      ),
-      Column(
-        children: [
-          InkWell(
-            child: ElevatedButton(onPressed: () {}, child: Text("Get Started",),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(20)),),
-                padding: EdgeInsets.symmetric(horizontal: 150,vertical:15),textStyle: TextStyle(fontSize: 17)
-              )),
-          ),
+      drawer: Drawer(
+        backgroundColor: Colors.blue.shade100,
+        shadowColor: Colors.blue.shade100,
+        shape: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(
+              color: Colors.blue.shade100,
+            )),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 120),
+          child: Column(
+            children: [
+              Text("List"),
             ],
-          )
-        ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: NavigationBar(
+          selectedIndex: 0,
+          onDestinationSelected: (int selectedIndex) {},
+          destinations: [
+            NavigationDestination(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.blue.shade400,
+                ),
+                label: "Home"),
+            NavigationDestination(
+                icon: Icon(
+                  Icons.search,
+                  color: Colors.lightBlueAccent,
+                ),
+                label: "Search")
+          ]),
+      // body: Scrollbar(
+      //   child: SingleChildScrollView(
+      //     child: Column(
+      //       children: [
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //       ],
+      //     ),
+      //   ),
+      // ),
+      body: Scrollbar(
+        thickness: 5,
+        interactive: true,
+        trackVisibility: true,
+        thumbVisibility: true,
+        radius: Radius.circular(10),
+        // child: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: ListView.builder(
+        //
+        //     itemCount: 100,
+        //
+        //       itemBuilder:(context,index){
+        //
+        //     return Text("item $index");
+        //   }),
+        // ),
+        child: ListView.builder(
+            itemCount: friends.length,
+            itemBuilder: (BuildContext context, index) {
+              return ListTile(
+                title:Text(friends[index]),
+                subtitle: Text("Friend's no $index"),
+                trailing: Icon(Icons.arrow_back_ios),
+                leading: CircleAvatar(
+                  child: Icon(Icons.person),backgroundColor:Colors.pink,
+                  foregroundColor:Colors.redAccent,
+                ),
+                //dense:true,
+                titleTextStyle:TextStyle(color: Colors.pink),
+                subtitleTextStyle: TextStyle(color: Colors.blue),
+                iconColor: Colors.redAccent,
+
+
+              );
+
+            }),
       ),
     );
   }
