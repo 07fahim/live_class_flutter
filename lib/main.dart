@@ -1,331 +1,64 @@
 import 'package:flutter/material.dart';
 
+// ListView.Separator, Container
+
 void main() {
-  runApp(const MyApp());
+  runApp(HelloWorldApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class HelloWorldApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Home());
+    return MaterialApp(
+      debugShowCheckedModeBanner: true,
+      title: 'Hello World App',
+      home: Home(),
+    );
   }
 }
 
 class Home extends StatelessWidget {
   Home({super.key});
 
-  MySnacbar(message, context) {
-    return ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-          backgroundColor: Colors.blue.shade200,
-          //padding: EdgeInsets.all(10),
-
-          content: Text(
-            message,
-            style: TextStyle(fontSize: 20),
-          )),
-    );
-  }
-
-  List<String> friends = [
-    "Fahim",
-    "Mainu",
-    "Asif",
-    "Rabby",
-    "Ammar",
-    "Waser",
-    "Forhad",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
-    "CR7",
+  List<String> friendList = [
+    'Iram',
+    'Shabbin',
+    'Rakib',
+    'Hasan',
+    'Roy',
+    'Niloy',
+    'Hasan',
+    'Fahad',
+    'Nilly',
+    'Touhid',
+    'Mony',
+    'Random',
   ];
-
-  TextEditingController _emailTEController =TextEditingController();
-  TextEditingController _passTEController =TextEditingController();
-  GlobalKey<FormState> _formKey=GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Home App",
-          style: TextStyle(
-              fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        titleSpacing: 2,
-        centerTitle: true,
-        backgroundColor: Colors.blue.shade100,
-        elevation: 10,
-        toolbarHeight: 80,
-        toolbarOpacity: 1,
-        actions: [
-          IconButton(
-              onPressed: () {
-                MySnacbar('Edit', context);
-              },
-              icon: Icon(Icons.edit)),
-          IconButton(
-              onPressed: () {
-                MySnacbar('Delete', context);
-              },
-              icon: Icon(Icons.delete))
-        ],
-      ),
-      backgroundColor: Colors.blue.shade100,
-      drawer: Drawer(
-        backgroundColor: Colors.blue.shade100,
-        shadowColor: Colors.blue.shade100,
-        shape: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(
-              color: Colors.blue.shade100,
-            )),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 120),
-          child: Column(
-            children: [
-              Text("List"),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: NavigationBar(
-          selectedIndex: 0,
-          onDestinationSelected: (int selectedIndex) {},
-          destinations: [
-            NavigationDestination(
-                icon: Icon(
-                  Icons.home,
-                  color: Colors.blue.shade400,
-                ),
-                label: "Home"),
-            NavigationDestination(
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.lightBlueAccent,
-                ),
-                label: "Search")
-          ]),
-      // body: Scrollbar(
-      //   child: SingleChildScrollView(
-      //     child: Column(
-      //       children: [
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //         Text("7777"),
-      //       ],
-      //     ),
-      //   ),
-      // ),
-      // body: Scrollbar(
-      //   thickness: 5,
-      //   interactive: true,
-      //   trackVisibility: true,
-      //   thumbVisibility: true,
-      //   radius: Radius.circular(10),
-      //   // child: Padding(
-      //   //   padding: const EdgeInsets.all(8.0),
-      //   //   child: ListView.builder(
-      //   //
-      //   //     itemCount: 100,
-      //   //
-      //   //       itemBuilder:(context,index){
-      //   //
-      //   //     return Text("item $index");
-      //   //   }),
-      //   // ),
-      //   child: ListView.builder(
-      //       itemCount: friends.length,
-      //       itemBuilder: (BuildContext context, index) {
-      //         return ListTile(
-      //           title:Text(friends[index]),
-      //           subtitle: Text("Friend's no $index"),
-      //           trailing: Icon(Icons.arrow_back_ios),
-      //           leading: CircleAvatar(
-      //             child: Icon(Icons.person),backgroundColor:Colors.pink,
-      //             foregroundColor:Colors.redAccent,
-      //           ),
-      //           //dense:true,
-      //           titleTextStyle:TextStyle(color: Colors.pink),
-      //           subtitleTextStyle: TextStyle(color: Colors.blue),
-      //           iconColor: Colors.redAccent,
-      //
-      //
-      //         );
-      //
-      //       }),
-      // ),
-      // body: GridView.builder(
-      //   scrollDirection: Axis.horizontal,
-      //   itemCount: friends.length,
-      //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-      //       mainAxisSpacing: 12, crossAxisSpacing: 12, crossAxisCount: 4),
-      //   itemBuilder: (context, index) {
-      //     return Container(height: 100,width: 100,
-      //       child: Text(friends[index]),
-      //     );
-      //   },
-      // ),
-      body:Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                autovalidateMode:AutovalidateMode.onUserInteraction,
-                controller: _emailTEController,
-                decoration:InputDecoration(
-                  hintText:"Email"
-                ),
-                validator: (String?value){
-                  if(value==null || value.isEmpty){
-                    return "Enter Your Email";
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                controller: _passTEController,
-                decoration:InputDecoration(
-                    hintText:"Password"
-                ),
-                validator: (String?value){
-                  if(value?.isEmpty ?? true){
-                    return "Enter Your PassWord";
-                  }
-                  return null;
-                },
-              ),
-
-              ElevatedButton(onPressed: (){
-
-                if(_formKey.currentState!.validate()){
-                  print("Login Successful");
-                }
-
-              }, child:Text('Tap'))
-
-            ],
-          ),
-        ),
-      ),
+        appBar: AppBar(
+        title: Text('Home'),
+    backgroundColor: Colors.green,
+    ),
+      body: ListView.builder(
+          itemCount:friendList.length,
+          itemBuilder:(BuildContext context,int index){
+            return Column(
+              children: [
+                Text(friendList[index]),
+                Divider(
+                  height: 10,
+                  thickness: 5,
+                  color: Colors.redAccent,
+                  indent: 10,
+                  endIndent: 10,
+                )
+              ],
+            );
+          }),
     );
   }
 }
+
