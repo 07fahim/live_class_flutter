@@ -20,109 +20,110 @@ class HelloWorldApp extends StatelessWidget {
 class Home extends StatelessWidget {
   Home({super.key});
 
-  List<String> friendList = [
-    'Iram',
-    'Shabbin',
-    'Rakib',
-    'Hasan',
-    'Roy',
-    'Niloy',
-    'Hasan',
-    'Fahad',
-    'Nilly',
-    'Touhid',
-    'Mony',
-    'Random',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      appBar: AppBar(
         title: Text('Home'),
-    backgroundColor: Colors.green,
-    ),
-//       body: ListView.separated(
-//           itemCount:friendList.length,
-//           itemBuilder:(BuildContext context,int index){
-//             return Column(
-//               children: [
-//                 Text(friendList[index]),
-//                 // Divider(
-//                 //   height: 10,
-//                 //   thickness: 5,
-//                 //   color: Colors.redAccent,
-//                 //   indent: 10,
-//                 //   endIndent:12,
-//                 // )
-//               ],
-//             );
-//           },
-//           separatorBuilder:(BuildContext context,int index){
-//             return Divider(
-//               height: 10,
-//               thickness: 10,
-//               endIndent: 10,
-//             );
-//           }
-//           ),
-//
-//     );
-//   }
-// }
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 100,
-                height: 100,
-                margin: EdgeInsets.only(left: 24),
-                decoration: BoxDecoration(
-                    color: Colors.red,
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                        color: Colors.pink.withOpacity(0.4),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 2), // changes position of shadow
-                      ),
-                    ]
-                ),
-              ),
-              Column(
-                children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(8),
-                    margin: EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      border: Border.all(color: Colors.black, width: 2),
-                      // borderRadius: BorderRadius.circular(16)
-                      // borderRadius: BorderRadius.only(
-                      //   topLeft: Radius.circular(16),
-                      //   bottomRight: Radius.circular(16)
-                      // ),
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/cr7.jpg'),
-                        fit: BoxFit.cover,
-                        opacity: 0.3,
-                      ),
-                    ),
-                    child: Text('Random'),
-                  ),
-                  Text('Shoe')
-                ],
-              ),
-            ],
-          ),
-        ],
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Profile(
+                                username: 'Fahim',
+                              )));
+                },
+                child: Text("Go To Profile")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Settings()));
+                },
+                child: Text("Go To Settings"))
+          ],
+        ),
       ),
     );
   }
 }
 
+class Profile extends StatelessWidget {
+  const Profile({super.key, required this.username});
+
+  final String username;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Profile"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(username),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Back")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Settings()));
+                },
+                child: Text("Move to Settings")),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => Home()),
+                  (predicate) => false
+            );
+          },
+          child: Text('Back to Home')),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Settings extends StatelessWidget {
+  const Settings({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Settings"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Profile(
+                                username: "Faiyaz",
+                              )));
+                },
+                child: Text("Move to Profile"))
+          ],
+        ),
+      ),
+    );
+  }
+}
