@@ -48,6 +48,10 @@ class Home extends StatelessWidget {
     "CR7",
   ];
 
+  TextEditingController _emailTEController =TextEditingController();
+  TextEditingController _passTEController =TextEditingController();
+  GlobalKey<FormState> _formKey=GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -266,16 +270,61 @@ class Home extends StatelessWidget {
       //
       //       }),
       // ),
-      body: GridView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: friends.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisSpacing: 12, crossAxisSpacing: 12, crossAxisCount: 4),
-        itemBuilder: (context, index) {
-          return Container(height: 100,width: 100,
-            child: Text(friends[index]),
-          );
-        },
+      // body: GridView.builder(
+      //   scrollDirection: Axis.horizontal,
+      //   itemCount: friends.length,
+      //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      //       mainAxisSpacing: 12, crossAxisSpacing: 12, crossAxisCount: 4),
+      //   itemBuilder: (context, index) {
+      //     return Container(height: 100,width: 100,
+      //       child: Text(friends[index]),
+      //     );
+      //   },
+      // ),
+      body:Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                autovalidateMode:AutovalidateMode.onUserInteraction,
+                controller: _emailTEController,
+                decoration:InputDecoration(
+                  hintText:"Email"
+                ),
+                validator: (String?value){
+                  if(value==null || value.isEmpty){
+                    return "Enter Your Email";
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: _passTEController,
+                decoration:InputDecoration(
+                    hintText:"Password"
+                ),
+                validator: (String?value){
+                  if(value?.isEmpty ?? true){
+                    return "Enter Your PassWord";
+                  }
+                  return null;
+                },
+              ),
+
+              ElevatedButton(onPressed: (){
+
+                if(_formKey.currentState!.validate()){
+                  print("Login Successful");
+                }
+
+              }, child:Text('Tap'))
+
+            ],
+          ),
+        ),
       ),
     );
   }
