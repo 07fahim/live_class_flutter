@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
                   thickness: 5,
                   color: Colors.redAccent,
                   indent: 10,
-                  endIndent: 10,
+                  endIndent:12,
                 )
               ],
             );
