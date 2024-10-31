@@ -42,22 +42,31 @@ class Home extends StatelessWidget {
         title: Text('Home'),
     backgroundColor: Colors.green,
     ),
-      body: ListView.builder(
+      body: ListView.separated(
           itemCount:friendList.length,
           itemBuilder:(BuildContext context,int index){
             return Column(
               children: [
                 Text(friendList[index]),
-                Divider(
-                  height: 10,
-                  thickness: 5,
-                  color: Colors.redAccent,
-                  indent: 10,
-                  endIndent:12,
-                )
+                // Divider(
+                //   height: 10,
+                //   thickness: 5,
+                //   color: Colors.redAccent,
+                //   indent: 10,
+                //   endIndent:12,
+                // )
               ],
             );
-          }),
+          },
+          separatorBuilder:(BuildContext context,int index){
+            return Divider(
+              height: 10,
+              thickness: 10,
+              endIndent: 10,
+            );
+          }
+          ),
+
     );
   }
 }
