@@ -40,6 +40,35 @@ class HelloWorldApp extends StatelessWidget {
               borderSide: BorderSide(color: Colors.blue),
             ),
           )),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.redAccent,
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        )),
+        appBarTheme: AppBarTheme(
+            backgroundColor: Colors.purple,
+            foregroundColor: Colors.white,
+            titleTextStyle:
+                TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        inputDecorationTheme: InputDecorationTheme(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.purple),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.pink),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+        ),
+      ),
+      themeMode: ThemeMode.dark,
     );
   }
 }
