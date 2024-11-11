@@ -10,9 +10,22 @@ class HelloWorldApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       title: 'Hello World App',
       home: Home(),
+      theme: ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.redAccent,
+            foregroundColor: Colors.white,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          )),
+          appBarTheme: AppBarTheme(
+              backgroundColor: Colors.purple,
+              foregroundColor: Colors.white,
+              titleTextStyle:
+                  TextStyle(fontSize: 24, fontWeight: FontWeight.bold))),
     );
   }
 }
@@ -25,13 +38,12 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
-        backgroundColor: Colors.green,
+        // backgroundColor: Colors.green,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
             ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -82,15 +94,14 @@ class Profile extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Settings()));
                 },
                 child: Text("Move to Settings")),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => Home()),
-                  (predicate) => false
-            );
-          },
-          child: Text('Back to Home')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                      (predicate) => false);
+                },
+                child: Text('Back to Home')),
           ],
         ),
       ),
