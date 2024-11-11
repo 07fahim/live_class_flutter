@@ -68,7 +68,7 @@ class HelloWorldApp extends StatelessWidget {
           ),
         ),
       ),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.system,
     );
   }
 }
@@ -180,7 +180,32 @@ class Settings extends StatelessWidget {
                                 username: "Faiyaz",
                               )));
                 },
-                child: Text("Move to Profile"))
+                child: Text("Move to Profile")),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+              Container(
+                height:300,
+                width: 300,
+                color: Colors.blue,
+              ),
+              Container(
+                height:200,
+                width: 200,
+                color: Colors.red,
+              ),
+              Positioned(
+                bottom: 10,
+                top: 20,
+                left: 30,
+
+                child: Container(
+                  height:100,
+                  width: 100,
+                  color: Colors.yellow,
+                ),
+              ),
+            ],)
           ],
         ),
       ),
