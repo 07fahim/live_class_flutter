@@ -25,7 +25,21 @@ class HelloWorldApp extends StatelessWidget {
               backgroundColor: Colors.purple,
               foregroundColor: Colors.white,
               titleTextStyle:
-                  TextStyle(fontSize: 24, fontWeight: FontWeight.bold))),
+                  TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+          inputDecorationTheme: InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.purple),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.pink),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.blue),
+            ),
+          )),
     );
   }
 }
@@ -41,26 +55,32 @@ class Home extends StatelessWidget {
         // backgroundColor: Colors.green,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Profile(
-                                username: 'Fahim',
-                              )));
-                },
-                child: Text("Go To Profile")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Settings()));
-                },
-                child: Text("Go To Settings"))
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextField(),
+              TextField(),
+              TextField(),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => Profile(
+                                  username: 'Fahim',
+                                )));
+                  },
+                  child: Text("Go To Profile")),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Settings()));
+                  },
+                  child: Text("Go To Settings"))
+            ],
+          ),
         ),
       ),
     );
