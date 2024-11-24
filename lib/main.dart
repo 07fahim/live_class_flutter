@@ -86,7 +86,7 @@ class Home extends StatelessWidget{
         if(orientation == Orientation.portrait){
           return Center(child: Text("Hello world"));
         }else
-          return Center(child: Text("Hello another world"));
+          return Center(child: Text("Hello another world2"));
       }),
     );
 
