@@ -1,32 +1,34 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-void main(){
-  runApp(const Myapp());
+void main() {
+  runApp(
+    DevicePreview(
+      enabled: kDebugMode,
+      builder: (BuildContext context) => Myapp(),
+    ),
+  );
 }
 
-class Myapp extends StatelessWidget{
+class Myapp extends StatelessWidget {
   const Myapp({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Home(),
     );
-
   }
-
-
 }
 
-class Home extends StatelessWidget{
+class Home extends StatelessWidget {
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-
-    Size screenSize =MediaQuery.of(context).size;
+    Size screenSize = MediaQuery.of(context).size;
 
     print(screenSize.width);
     print(screenSize.height);
@@ -35,61 +37,37 @@ class Home extends StatelessWidget{
     print(screenSize.shortestSide);
     print(screenSize.flipped);
 
-
     print(MediaQuery.of(context).size);
     print(MediaQuery.of(context).orientation);
 
-
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("My appBar"),
-      ),
-      // body:Column(
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: [
-      //     Wrap(
-      //       alignment: WrapAlignment.center,
-      //       crossAxisAlignment: WrapCrossAlignment.start,
-      //       spacing: 10,
-      //       runAlignment: WrapAlignment.start,
-      //       runSpacing: 10,
-      //
-      //       children: [
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
-      //
-      //
-      //       ],
-      //     ),
-      //   ],
+      // appBar: AppBar(
+      //   title: const Text("My appBar"),
       // ),
-      // body:LayoutBuilder(
-      //   builder: (BuildContext context, BoxConstraints constraints) {
-      //     return Center(child: Text("${constraints.maxHeight} ${constraints.maxWidth}"));
-      //   }
-      // ) ,
-      body: OrientationBuilder(builder: (context, orientation){
-        if(orientation == Orientation.portrait){
-          return Center(child: Text("Hello world"));
-        }else
-          return Center(child: Text("Hello another world2"));
-      }),
+      // body: FractionallySizedBox(
+      //   widthFactor: 0.7,
+      //   heightFactor: 0.5,
+      //   child: ColoredBox(color: Colors.blue),
+      //   alignment: Alignment.center,
+      // ),
+      // body: AspectRatio(aspectRatio: 10/9,child: ColoredBox(color: Colors.orange),),
+
+      body: SafeArea(
+        top: true,
+        minimum: EdgeInsets.only(top:20),
+        maintainBottomViewPadding:true,
+        child: Tooltip(
+          message: "Container",
+          triggerMode: TooltipTriggerMode.tap,
+          child: Column(
+            children: [
+              Expanded(flex:2,child: Container(width:300,height: 300,color:Colors.orange,)),
+              Expanded(flex:2,child: Container(width:300,height: 300,color:Colors.pinkAccent,)),
+              Expanded(flex:1,child: Container(width:300,height: 300,color:Colors.blue)),
+            ],
+          ),
+        ),
+      ),
     );
-
   }
-
 }
