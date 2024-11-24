@@ -1,70 +1,95 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter/material.dart';
 
-void main() {
-  runApp(CupertinoExpApp());
+void main(){
+  runApp(const Myapp());
 }
 
-class CupertinoExpApp extends StatelessWidget {
-  const CupertinoExpApp({super.key});
+class Myapp extends StatelessWidget{
+  const Myapp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    if(Platform.isIOS){
-    return const CupertinoApp(
-      home: Home(),
+
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-    );}
-    else{
-      return MaterialApp(
-        home: Home(),
-      );
-    }
+      home: Home(),
+    );
+
   }
+
+
 }
 
-class Home extends StatelessWidget {
+class Home extends StatelessWidget{
   const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-        navigationBar: const CupertinoNavigationBar(
-          padding: EdgeInsetsDirectional.all(10),
-          middle: Text("Home"),
-          backgroundColor: CupertinoColors.link,
-          leading: Icon(
-            CupertinoIcons.home,
-            color: CupertinoColors.white,
-          ),
-          trailing: Icon(
-            CupertinoIcons.add_circled,
-            color: CupertinoColors.white,
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-                child: CupertinoButton.filled(
-              borderRadius: BorderRadius.circular(10),
-              child: const Text(
-                "Tap Here",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-              onPressed: () {},
-            )),
-            CupertinoListTile(
-              title: Text("Name"),
-              subtitle: Text("name"),
-              trailing: Icon(CupertinoIcons.airplane),
-            ),
-            CupertinoTextField(),
-            CupertinoSwitch(value:false, onChanged:(value){})
-          ],
-        ));
+
+    Size screenSize =MediaQuery.of(context).size;
+
+    print(screenSize.width);
+    print(screenSize.height);
+    print(screenSize.aspectRatio);
+    print(screenSize.longestSide);
+    print(screenSize.shortestSide);
+    print(screenSize.flipped);
+
+
+    print(MediaQuery.of(context).size);
+    print(MediaQuery.of(context).orientation);
+
+
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("My appBar"),
+      ),
+      // body:Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     Wrap(
+      //       alignment: WrapAlignment.center,
+      //       crossAxisAlignment: WrapCrossAlignment.start,
+      //       spacing: 10,
+      //       runAlignment: WrapAlignment.start,
+      //       runSpacing: 10,
+      //
+      //       children: [
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //         ElevatedButton(onPressed: (){}, child:Text("Button")),
+      //
+      //
+      //       ],
+      //     ),
+      //   ],
+      // ),
+      // body:LayoutBuilder(
+      //   builder: (BuildContext context, BoxConstraints constraints) {
+      //     return Center(child: Text("${constraints.maxHeight} ${constraints.maxWidth}"));
+      //   }
+      // ) ,
+      body: OrientationBuilder(builder: (context, orientation){
+        if(orientation == Orientation.portrait){
+          return Center(child: Text("Hello world"));
+        }else
+          return Center(child: Text("Hello another world"));
+      }),
+    );
+
   }
+
 }
