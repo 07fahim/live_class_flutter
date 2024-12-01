@@ -14,7 +14,54 @@ class MyApp extends StatelessWidget {
 }
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
+
+
+  MySnacbar(message,context){
+
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(backgroundColor: Colors.blue.shade200,
+          //padding: EdgeInsets.all(10),
+
+
+          content:Text(message,style:TextStyle(fontSize: 20),)),
+    );
+  }
+
+  List<String> friends = [
+    "Fahim",
+    "Mainu",
+    "Asif",
+    "Rabby",
+    "Ammar",
+    "Waser",
+    "Forhad",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+    "CR7",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,75 +74,192 @@ class Home extends StatelessWidget {
         ),
         titleSpacing: 2,
         centerTitle: true,
-        backgroundColor: Colors.cyan,
-        elevation: 100,
+        backgroundColor: Colors.blue.shade100,
+        elevation: 10,
         toolbarHeight: 80,
         toolbarOpacity: 1,
+        actions: [
+          IconButton(onPressed: () {MySnacbar('Edit', context);}, icon: Icon(Icons.edit)),
+          IconButton(onPressed: () {MySnacbar('Delete', context);}, icon: Icon(Icons.delete))
+        ],
       ),
-      backgroundColor: Colors.white,
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 200,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                //showAboutDialog(context:context);
-                showModalBottomSheet(
-                    //barrierColor: Colors.redAccent,
-                    backgroundColor: Colors.deepOrangeAccent,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),enableDrag:true ,isScrollControlled:false,useSafeArea:true,
-                    context: context,
-                    builder: (ctx) {
-                      return Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 18),
-                                child: Text(
-                                  "Tittle",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ],
-                          ),Divider(color: Colors.greenAccent,thickness: 4,
-                          height: 10,),
-                          Text('Sample'),SizedBox(height:300,),
-                          Row(mainAxisSize: MainAxisSize.max,
-                           mainAxisAlignment: MainAxisAlignment.end,
-                            //crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                InkWell(child: ElevatedButton(onPressed: (){}, child:Text("Cancel"),)),
-                                //SizedBox(width: 6,),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: InkWell(child: ElevatedButton(onPressed: (){}, child:Text("Save"))),
-                                )
-                              ]
-                          )
-                        ],
-                      );
-                    });
-              },
-              child: Text("Show Dialog"),
-              style: ElevatedButton.styleFrom(
-                  elevation: 5,
-                  backgroundColor: Colors.lightGreen,
-                  foregroundColor: Colors.white,
-                  textStyle: TextStyle(fontSize: 18),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)),
-                  side: BorderSide(color: Colors.white70, width: 2)),
-            )
-          ],
+      backgroundColor: Colors.blue.shade100,
+      drawer: Drawer(
+        backgroundColor: Colors.blue.shade100,
+        shadowColor: Colors.blue.shade100,
+        shape: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(
+              color: Colors.blue.shade100,
+            )),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 120),
+          child: Column(
+            children: [
+              Text("List"),
+            ],
+          ),
         ),
+      ),
+      bottomNavigationBar: NavigationBar(
+          selectedIndex: 0,
+          onDestinationSelected: (int selectedIndex) {},
+          destinations: [
+            NavigationDestination(
+                icon: Icon(
+                  Icons.home,
+                  color: Colors.blue.shade400,
+                ),
+                label: "Home"),
+            NavigationDestination(
+                icon: Icon(
+                  Icons.search,
+                  color: Colors.lightBlueAccent,
+                ),
+                label: "Search")
+          ]),
+      // body: Scrollbar(
+      //   child: SingleChildScrollView(
+      //     child: Column(
+      //       children: [
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //         Text("7777"),
+      //       ],
+      //     ),
+      //   ),
+      // ),
+      body: Scrollbar(
+        thickness: 5,
+        interactive: true,
+        trackVisibility: true,
+        thumbVisibility: true,
+        radius: Radius.circular(10),
+        // child: Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: ListView.builder(
+        //
+        //     itemCount: 100,
+        //
+        //       itemBuilder:(context,index){
+        //
+        //     return Text("item $index");
+        //   }),
+        // ),
+        child: ListView.builder(
+            itemCount: friends.length,
+            itemBuilder: (BuildContext context, index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(friends[index]),
+              );
+            }),
       ),
     );
   }
